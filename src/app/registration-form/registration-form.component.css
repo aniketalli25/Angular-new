@@ -1,0 +1,65 @@
+/* registration-form.component.css */
+.upload-file{
+  border-radius: 6.3px;
+  border: 1px solid rgba(var(--accent-color-rgb), 0.85);
+  background: #0A1E35;
+  width: 100px;
+  font-size: small;
+  background-color: transparent !important;
+}
+ .file-input {    display: none; /* Hide the default file input */
+  }
+.upload-text {
+  text-align: center;
+}
+.form-lable{
+  font-size: 12px;
+  color: #FFF;
+}
+/* .modal-backdrop.show {
+  opacity:0 !important;
+} */
+
+::placeholder {
+  color: gray;
+   /* Firefox */
+}
+
+
+/* Style for the container */
+.file-container {
+width: 150px;
+text-align: center;
+float: right;
+margin-top: 15px;
+}
+
+/* Style for the file input */
+.file-input {
+display: none; /* Hide the default file input */
+}
+
+/* Style for the label */
+.file-label {
+cursor: pointer;
+padding: 8px;
+border: 1px  solid rgba(var(--accent-color-rgb), 0.85);
+border-radius:10px;
+display: flex;
+align-items: center;
+color:black;
+font-size: 15px;
+width:100%;
+height: 35px;
+}
+
+/* Style for the image */
+.upload-icon {
+margin-right: 5px;
+width: 15px;
+/* // height: 15px; */
+}
+.upload-text {
+text-align: center;
+}
+

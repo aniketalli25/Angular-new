@@ -1,0 +1,110 @@
+.header {
+  transition: background-color 0.3s ease-in-out;
+}
+
+.transparent {
+  background-color: transparent !important;
+}
+
+.scrolled {
+  background-color: white;
+}
+
+.navmenu ul li a {
+  color: white; /* Default color */
+}
+
+.navmenu ul li a.active {
+  color: black; /* Color when scrolled */
+}
+.logo h1, .logo span {
+  color: white; /* Default color */
+}
+
+.logo.scrolled h1, .logo.scrolled span {
+  color: black; /* Color when scrolled */
+
+}
+.btn-getstarted {
+  margin-top: 20px;
+  color: var(--contrast-color);
+  background: rgba(var(--accent-color-rgb), 0.85);
+  padding: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  border-radius: 5px;
+}
+.findOut-btn
+{
+  padding: 13px ;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 2px solid  rgba(var(--accent-color-rgb), 0.85);
+  color: gba(var(--accent-color-rgb), 0.85);
+}
+.register-btn{
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  /* padding-left: 30px; */
+  border: 2px solid rgba(var(--accent-color-rgb), 0.85);
+
+}
+.input-email{
+  padding-left: 20px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* border: 2px solid rgba(var(--accent-color-rgb), 0.85); */
+  display: auto;
+  width: auto;
+  height: calc(1.5em + 0.75rem + 2px);
+
+}
+
+.email-icon{
+  position: relative;
+  right: 33px;
+  top: 12px;
+  font-size: 19px;
+}
+
+.location-input{
+  position: absolute;
+  right: 17px;
+}
+/* .modal-backdrop.show {
+  opacity:0 !important;
+} */
+/* Your CSS file */
+.popup-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup {
+  background-color: white;
+  border: 1px solid black;
+  padding: 26px;
+  max-width: 794px;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+/* registration-form.component.css */

@@ -1,0 +1,123 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="pt-5 text-center">Profile</h3>
+    </div>
+    <div class="col-md-4">
+      <img [src]="profileForm.get('profileImage')?.value" alt="Profile Picture" width="200px" *ngIf="profileForm.get('profileImage')?.value">
+    </div>
+    <div class="col-md-8 px-4">
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <div class="d-flex">
+            <h4 class=""><b>{{ profileForm.get('firstName')?.value }} {{ profileForm.get('lastName')?.value }}</b></h4>
+            <small class="px-5 mt-1"><b>{{ profileForm.get('age')?.value }} Years</b></small>
+          </div>
+          <div>
+            <address class=""><b>{{ profileForm.get('address')?.value }}</b></address>
+          </div>
+          <div>
+            <b> My Interest : {{ profileForm.get('interest')?.value }}</b>
+          </div>
+          <div class="mt-2">
+            <div> <b>About</b></div>
+            <p>{{ profileForm.get('about')?.value }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4 ">
+          <div class="float-right user-profile-btn ">
+            <button class="mx-2 px-3" (click)="editPhoto()" #fileButton>Edit photo</button>
+            <input type="file" id="file" class="file-input" style="display: none;" (change)="handleFileInput($event)" #fileInput>
+
+            <div class="register-btn btn py-1 btn-primary text-center"
+                 data-bs-toggle="modal"
+                 data-bs-target="#exampleModal"
+                 (click)="populateForm(formData)">
+                 Edit Profile
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div  class="modal fade mt-5 pt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="profileForm">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="row mx-2">
+                <input type="file" id="file" class="file-input" (change)="handleFileInput($event)">
+                <div class="file-container">
+                  <label for="file" class="file-label">
+                    <div class="upload-text w-100" *ngIf="profileForm.get('profileImage')?.value; else defaultText">
+                      Uploaded
+                    </div>
+                    <ng-template #defaultText>
+                      <div class="upload-text w-100">Upload Image</div>
+                    </ng-template>
+                    <input type="file" id="file" class="file-input" (change)="handleFileInput($event)">
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="d-flex justify-content-between">
+                <input type="text" class="form-control mx-2" placeholder="First Name" formControlName="firstName">
+                <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName">
+              </div>
+              <div *ngIf="profileForm.get('firstName')?.errors && (profileForm.get('firstName')?.dirty || profileForm.get('firstName')?.touched)">
+                <div *ngIf="profileForm.get('firstName')?.errors?.['required']" class="text-danger">&nbsp; First name is required.</div>
+                <div *ngIf="profileForm.get('firstName')?.errors?.['pattern']" class="text-danger">First name must contain
+                  only alphabetic characters and should not exceed 20 characters.</div>
+              </div>
+              <div class="mt-2 d-flex justify-content-between">
+                <select class="form-select form-control mx-2" id="addressType" formControlName="addressType">
+                  <option value="home">Home</option>
+                  <option value="company">Company</option>
+                </select>
+                <input type="text" class="form-control" id="interestField" placeholder="Enter your interests"
+                       formControlName="interest">
+                <div class="mt-2">
+                  <span class="badge bg-primary me-1 mb-1" *ngFor="let tag of profileForm.get('interests')?.value"
+                        (click)="removeInterest(tag)">{{ tag }} <span>&times;</span></span>
+                </div>
+              </div>
+              <div class="mt-2">
+                <div class="d-flex justify-content-between" *ngIf="profileForm.get('addressType')?.value === 'home'">
+                  <input type="text" class="form-control mx-2" placeholder="Address 1" formControlName="address1">
+                  <input type="text" class="form-control" placeholder="Address 2" formControlName="address2">
+                </div>
+                <div class="d-flex justify-content-between" *ngIf="profileForm.get('addressType')?.value === 'company'">
+                  <input type="text" class="form-control mx-2" placeholder="Company Address 1" formControlName="companyAddress1">
+                  <input type="text" class="form-control" placeholder="Company Address 2" formControlName="companyAddress2">
+                </div>
+              </div>
+              <div>
+                <label for="ageSlide" class="mx-2">Age:</label>
+                <input type="range" class="form-range mx-2" id="ageSlider" min="1" max="100" formControlName="age">
+                <span>{{ profileForm.get('age')?.value }}</span>
+              </div>
+              <!-- <div>
+                <button type="button" class="btn btn-primary" (click)="saveDataToServer(userId)">Update</button>
+              </div> -->
+              <div class=" col-md-10 d-flex justify-content-center">
+                <button type="submit" class=" btn px-5"   (click)="saveDataToServer(userId)"style="background: rgba(var(--accent-color-rgb), 0.85); color: white;">Update</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

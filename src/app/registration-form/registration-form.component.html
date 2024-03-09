@@ -1,0 +1,70 @@
+<!-- <form [formGroup]="profileForm" (ngSubmit)="submitForm()">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="row mx-2">
+        <img [src]="profileForm.get('profileImage')?.value" alt="Profile Picture" class="mx-4" width="80px">
+        <div class="file-container">
+          <label for="file" class="file-label">
+            <div class="upload-text w-100" *ngIf="profileForm.get('profileImage')?.value; else defaultText">
+              Uploaded
+            </div>
+            <ng-template #defaultText>
+              <div class="upload-text w-100">Upload Image</div>
+            </ng-template>
+            <input type="file" id="file" class="file-input" (change)="handleFileInput($event)">
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="d-flex justify-content-between">
+        <input type="text" class="form-control mx-2" placeholder="First Name" formControlName="firstName"><br>
+
+        <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName">
+
+      </div>
+      <div
+      *ngIf="profileForm.get('firstName')?.errors && (profileForm.get('firstName')?.dirty || profileForm.get('firstName')?.touched)">
+      <div *ngIf="profileForm.get('firstName')?.errors?.['required']" class="text-danger">&nbsp; First name is required.
+      </div>
+      <div *ngIf="profileForm.get('firstName')?.errors?.['pattern']" class="text-danger">First name must contain
+        only alphabetic characters and should not exceed 20 characters.</div>
+    </div>
+      <div class="mt-2 d-flex justify-content-between">
+        <select class="form-select form-control mx-2" id="addressType" formControlName="addressType">
+          <option value="home">Home</option>
+          <option value="company">Company</option>
+        </select>
+        <input type="text" class="form-control" id="interestField" placeholder="Enter your interests"
+          formControlName="interest">
+        <div class="mt-2">
+          <span class="badge bg-primary me-1 mb-1" *ngFor="let tag of profileForm.get('interests')?.value"
+            (click)="removeInterest(tag)">{{ tag }} <span>&times;</span></span>
+        </div>
+      </div>
+      <div class="mt-2">
+        <div class="d-flex justify-content-between" *ngIf="profileForm.get('addressType')?.value === 'home'">
+          <input type="text" class="form-control mx-2" placeholder="Address 1" formControlName="address1">
+          <input type="text" class="form-control" placeholder="Address 2" formControlName="address2">
+        </div>
+        <div class="d-flex justify-content-between" *ngIf="profileForm.get('addressType')?.value === 'company'">
+          <input type="text" class="form-control mx-2" placeholder="Company Address 1" formControlName="companyAddress1">
+          <input type="text" class="form-control" placeholder="Company Address 2" formControlName="companyAddress2">
+        </div>
+      </div>
+      <div class="mt-2">
+        <textarea  class="form-control mx-2" placeholder="About" formControlName="about"> </textarea>
+
+      </div>
+
+      <div>
+        <label for="ageSlide" class="mx-2">Age:</label> <br>
+        <input type="range" class="form-range mx-2" id="ageSlider" min="1" max="100" formControlName="age">
+        <span>{{ profileForm.get('age')?.value }}</span>
+      </div>
+      <div class=" col-md-10 d-flex justify-content-center">
+        <button type="submit" class=" btn px-5" style="background: rgba(var(--accent-color-rgb), 0.85); color: white;">Submit</button>
+      </div>
+    </div>
+  </div>
+</form> -->

@@ -1,0 +1,11 @@
+
+.user-profile-btn , button{
+  background-color: white;
+  border-radius: 4px;
+}
+/* .modal-backdrop.show { */
+  /* opacity: !important;
+} */
+.modal-backdrop.show {
+  opacity:0 !important;
+}
